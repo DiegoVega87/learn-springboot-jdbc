@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class PersonJdbcRepository {
 
@@ -26,6 +28,11 @@ public class PersonJdbcRepository {
             FROM person
             Where id = ? """;
 
+    private static final String SELECT_ALL_QUERY = """
+            SELECT *
+            FROM person
+            """;
+
     // Add the methods to interact with the database
     public void insert(Person person){
         System.out.println("Num of rows affected: " + jdbcTemplate.update(INSERT_QUERY, person.getId(), person.getName(), person.getBirthdate(),
@@ -42,4 +49,7 @@ public class PersonJdbcRepository {
                 new BeanPropertyRowMapper<>(Person.class), id);
     }
 
+    public List<Person> findAll(){
+        return jdbcTemplate.query(SELECT_ALL_QUERY, new BeanPropertyRowMapper<>(Person.class));
+    }
 }

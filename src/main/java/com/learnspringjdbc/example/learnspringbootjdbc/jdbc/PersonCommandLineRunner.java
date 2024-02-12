@@ -16,6 +16,16 @@ public class PersonCommandLineRunner implements CommandLineRunner {
         System.out.println("------------LAUNCHING COMMAND LINE RUNNER-------------");
         repository.insert(new Person(1, "Diego", "1980-01-01", "1234 Main St",
                 "Springfield", "IL"));
+        repository.insert(new Person(2, "Angie", "1982-02-01", "1234 Blackwell St",
+                "Springfield", "IL"));
+        repository.insert(new Person(3, "Clara", "1973-01-01", "1234 Suits St",
+                "Springfield", "IL"));
+
+        repository.deleteById(1);
+
+        System.out.println("Person with id 2: " + repository.findById(2));
+
+        repository.findAll().forEach(System.out::println);
 
     }
 }
