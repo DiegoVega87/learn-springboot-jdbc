@@ -1,6 +1,6 @@
-package com.learnspringjdbc.example.jdbc;
+package com.learnspringjdbc.example.learnspringbootjdbc.jdbc;
 
-import com.learnspringjdbc.example.entities.Person;
+import com.learnspringjdbc.example.learnspringbootjdbc.entities.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
-package com.learnspringjdbc.example.jdbc;
+package com.learnspringjdbc.example.learnspringbootjdbc.jdbc;
 
-import com.learnspringjdbc.example.entities.Person;
+import com.learnspringjdbc.example.learnspringbootjdbc.entities.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -28,12 +28,12 @@ public class PersonJdbcRepository {
 
     // Add the methods to interact with the database
     public void insert(Person person){
-        jdbcTemplate.update(INSERT_QUERY, person.getId(), person.getName(), person.getBirthdate(),
-                person.getAddress(), person.getCity(), person.getState());
+        System.out.println("Num of rows affected: " + jdbcTemplate.update(INSERT_QUERY, person.getId(), person.getName(), person.getBirthdate(),
+                person.getAddress(), person.getCity(), person.getState()));
     }
 
     public void deleteById(int id){
-        System.out.println("Num of rows affected: " + jdbcTemplate.update(DELETE_QUERY, id));
+         jdbcTemplate.update(DELETE_QUERY, id);
     }
 
     public Person findById(int id){
