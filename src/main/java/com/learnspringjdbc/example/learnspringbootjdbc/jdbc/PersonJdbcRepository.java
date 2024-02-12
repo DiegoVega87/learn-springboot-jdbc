@@ -14,7 +14,7 @@ public class PersonJdbcRepository {
 
     // Add the preformatted SQL queries as constants
     private static final String INSERT_QUERY = """
-            INSERT INTO person (id, name, birth_date, address, city, state)
+            INSERT INTO person (id, name, birthdate, address, city, state)
         VALUES(?, ?, ?, ?,?,?)
         """;
     private static final String DELETE_QUERY = """
