@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class PersonJdbcRepository {
 
     @Autowired
-    JdbcTemplate jdbcTemplate; // JdbcTemplate is a class provided by Spring to make it easier to work with JDBC
+    private JdbcTemplate jdbcTemplate; // JdbcTemplate is a class provided by Spring to make it easier to work with JDBC
 
     // Add the preformatted SQL queries as constants
     private static final String INSERT_QUERY = """
@@ -28,18 +28,18 @@ public class PersonJdbcRepository {
 
     // Add the methods to interact with the database
     public void insert(Person person){
-        jdbcTemplate.update(INSERT_QUERY, person.getId(), person.getName(), person.getBirthDate(),
+        jdbcTemplate.update(INSERT_QUERY, person.getId(), person.getName(), person.getBirthdate(),
                 person.getAddress(), person.getCity(), person.getState());
     }
 
     public void deleteById(int id){
-        jdbcTemplate.update(DELETE_QUERY, id);
+        System.out.println("Num of rows affected: " + jdbcTemplate.update(DELETE_QUERY, id));
     }
 
     public Person findById(int id){
         //ResultSet -> Bean -> RowMapper
         return jdbcTemplate.queryForObject(SELECT_QUERY,
-                new BeanPropertyRowMapper<Person>(Person.class), id);
+                new BeanPropertyRowMapper<>(Person.class), id);
     }
 
 }

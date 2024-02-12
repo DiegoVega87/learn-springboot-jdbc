@@ -4,7 +4,7 @@ public class Person {
     
     private long id;
     private String name;
-    private String birthDate;
+    private String birthdate;
     private String address;
     private String city;
     private String state;
@@ -13,9 +13,10 @@ public class Person {
     }
     
     public Person(long id, String name, String birthDate, String address, String city, String state) {
+        super();
         this.id = id;
         this.name = name;
-        this.birthDate = birthDate;
+        this.birthdate = birthDate;
         this.address = address;
         this.city = city;
         this.state = state;
@@ -37,12 +38,12 @@ public class Person {
         this.name = name;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getAddress() {
@@ -74,7 +75,7 @@ public class Person {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", birthDate='" + birthDate + '\'' +
+                ", birthdate='" + birthdate + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
